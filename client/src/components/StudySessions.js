@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import NoteCard from "./NoteCard";
 import SessionCard from "./SessionCard";
 import { v4 as uuidv4 } from "uuid";
-import { motion } from "framer-motion";
+import { motion } from "framer-motion/dist/framer-motion";
 
 function StudySessions() {
   const [sessionWithNotes, setSessionWithNotes] = useState([]);

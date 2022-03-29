@@ -10,7 +10,7 @@ import {
   faStickyNote,
 } from "@fortawesome/free-solid-svg-icons";
 import TodoList from "./TodoList";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion/dist/framer-motion";
 
 function CreateSession() {
   const [title, setTitle] = useState("");

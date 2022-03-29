@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion/dist/framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencil, faX } from "@fortawesome/free-solid-svg-icons";
 

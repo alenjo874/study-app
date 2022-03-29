@@ -9,7 +9,7 @@ import {
   faCheck,
   faX,
 } from "@fortawesome/free-solid-svg-icons";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion/dist/framer-motion";
 
 function TodoList({ currentUserSession }) {
   const [todoArray, setTodoArray] = useState([]);
