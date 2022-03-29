@@ -1,8 +1,11 @@
 # Studia App
 
+https://study-notes-app.herokuapp.com/studysessions
+
 This project was built for students to keep themselves accountable by timing their study sessions while taking notes
 
-To start the project please run these commands 
+To start the project please run these commands
+
 - bundle exec rake server
 - npm start --prefix client (or move inside the client directory and run npm start)
 
