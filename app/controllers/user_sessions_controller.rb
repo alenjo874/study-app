@@ -4,6 +4,11 @@ class UserSessionsController < ApplicationController
         render json: user_sessions, status: :ok
     end
 
+    def user_sessions_notes
+        user_sessions_note = UserSession.find_by!(id: params[:id]).study_session.notes
+        render json: user_sessions_note,  status: :ok
+    end
+
     def show 
         show_user_session = UserSession.find_by!(id: params[:id])
         render json: show_user_session, status: :ok

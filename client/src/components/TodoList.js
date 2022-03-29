@@ -11,8 +11,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { motion, AnimatePresence } from "framer-motion/dist/framer-motion";
 
-function TodoList({ currentUserSession }) {
-  const [todoArray, setTodoArray] = useState([]);
+function TodoList({ currentUserSession, todoArray, setTodoArray }) {
+ 
   const [showTodos, setShowTodos] = useState(true);
   const [showTodoForm, setShowTodoForm] = useState(false);
   const [task, setTask] = useState("");
@@ -20,11 +20,11 @@ function TodoList({ currentUserSession }) {
   const [editTask, setEditTask] = useState("");
   const [editTodoObj, setEditTodoObj] = useState("");
 
-  useEffect(() => {
-    fetch(`/user_todo_list/${currentUserSession.user_id}`)
-      .then((res) => res.json())
-      .then(setTodoArray);
-  }, []);
+  // useEffect(() => {
+  //   fetch(`/user_todo_list/${currentUserSession.user_id}`)
+  //     .then((res) => res.json())
+  //     .then(setTodoArray);
+  // }, []);
 
   function handleCompleteTask(id) {
     const isCompleteArray = todoArray.map((todo) => {
@@ -57,7 +57,6 @@ function TodoList({ currentUserSession }) {
         }
         key={uuidv4()}
       >
-        {/* <div className="redline"></div> */}
         <button
           className={
             todo.completed

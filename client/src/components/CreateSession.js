@@ -32,7 +32,7 @@ function CreateSession() {
   const [editSubject, setEditSubject] = useState("");
   const [editStudyNote, setEditStudyNote] = useState("");
   const [showEditForm, setShowEditForm] = useState(false);
-
+  const [todoArray, setTodoArray] = useState([]);
   // create new study session and associated user session  ===============
 
   function handleCreateSession(e) {
@@ -62,8 +62,14 @@ function CreateSession() {
           }),
         })
           .then((res) => res.json())
-          .then(setCurrentUserSession);
+          .then((data) => {
+            setCurrentUserSession(data);
+            fetch(`/user_todo_list/${data.user_id}`)
+              .then((res) => res.json())
+              .then(setTodoArray);
+          });
       });
+
     setTitle("");
     setOverview("");
     setDate("");
@@ -480,7 +486,11 @@ function CreateSession() {
             className="notesTodoContainer"
           >
             {displayCurrentNotes}
-            <TodoList currentUserSession={currentUserSession} />
+            <TodoList
+              currentUserSession={currentUserSession}
+              todoArray={todoArray}
+              setTodoArray={setTodoArray}
+            />
           </motion.div>
         ) : null}
       </AnimatePresence>
