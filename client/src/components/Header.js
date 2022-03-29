@@ -1,25 +1,25 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <div id="headerdiv">
       <div className="navlink">
-        <NavLink to="/">
+        <Link to="/">
           <h1 className="navElement">studia</h1>
-        </NavLink>
+        </Link>
       </div>
       <div className="line"></div>
       <div id="navbar">
         <div className="navlink">
-          <NavLink to="/studysessions">
+          <Link to="/studysessions">
             <h2 className="navElement">study sessions</h2>
-          </NavLink>
+          </Link>
         </div>
         <div className="navlink">
-          <NavLink to="/createsession">
+          <Link to="/createsession">
             <h2 className="navElement">new study session</h2>
-          </NavLink>
+          </Link>
         </div>
       </div>
     </div>

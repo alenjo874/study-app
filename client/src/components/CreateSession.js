@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import NoteCard from "./NoteCard";
 import Timer from "./Timer";
 import { v4 as uuidv4 } from "uuid";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
