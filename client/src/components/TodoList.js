@@ -21,7 +21,7 @@ function TodoList({ currentUserSession }) {
   const [editTodoObj, setEditTodoObj] = useState("");
 
   useEffect(() => {
-    fetch(`http://localhost:9292/user_todo_list/${currentUserSession.user_id}`)
+    fetch(`/user_todo_list/${currentUserSession.user_id}`)
       .then((res) => res.json())
       .then(setTodoArray);
   }, []);
@@ -37,7 +37,7 @@ function TodoList({ currentUserSession }) {
 
     const completeTodo = todoArray.find((todo) => todo.id === id);
 
-    fetch(`http://localhost:9292/todo_lists/${completeTodo.id}`, {
+    fetch(`/todo_lists/${completeTodo.id}`, {
       method: "PATCH",
       body: JSON.stringify({ completed: !completeTodo.completed }),
       headers: {
@@ -99,7 +99,7 @@ function TodoList({ currentUserSession }) {
     setTodoArray(newTodoArray);
     setShowTodos(true);
 
-    fetch(`http://localhost:9292/todo_lists/${id}`, {
+    fetch(`/todo_lists/${id}`, {
       method: "DELETE",
     });
   }
@@ -141,7 +141,7 @@ function TodoList({ currentUserSession }) {
       user_id: currentUserSession.user_id,
     };
 
-    fetch("http://localhost:9292/todo_lists", {
+    fetch("/todo_lists", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -170,7 +170,7 @@ function TodoList({ currentUserSession }) {
     e.preventDefault();
 
     const newTaskEditObj = { task: editTask };
-    fetch(`http://localhost:9292/todo_lists/${editTodoObj.id}`, {
+    fetch(`/todo_lists/${editTodoObj.id}`, {
       method: "PATCH",
       body: JSON.stringify(newTaskEditObj),
       headers: {

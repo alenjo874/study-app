@@ -42,7 +42,7 @@ function CreateSession() {
       session_overview: overview,
       session_date: date,
     };
-    fetch("http://localhost:9292/study_sessions", {
+    fetch("/study_sessions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function CreateSession() {
     })
       .then((response) => response.json())
       .then((newSessionData) => {
-        fetch("http://localhost:9292/user_sessions", {
+        fetch("/user_sessions", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -79,7 +79,7 @@ function CreateSession() {
   function handleNewNote(e) {
     e.preventDefault();
 
-    fetch(`http://localhost:9292/user_sessions_notes/${currentUserSession.id}`)
+    fetch(`/user_sessions_notes/${currentUserSession.id}`)
       .then((r) => r.json())
       .then(setNotesArray);
 
@@ -90,7 +90,7 @@ function CreateSession() {
       study_session_id: currentUserSession.study_session_id,
     };
 
-    fetch("http://localhost:9292/notes", {
+    fetch("/notes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -323,7 +323,7 @@ function CreateSession() {
     const newNotesArray = notesArray.filter((note) => note.id !== id);
     setNotesArray(newNotesArray);
 
-    fetch(`http://localhost:9292/notes/${id}`, {
+    fetch(`/notes/${id}`, {
       method: "DELETE",
     });
   }
@@ -375,7 +375,7 @@ function CreateSession() {
     e.preventDefault();
 
     const newEditObj = { subject: editSubject, study_note: editStudyNote };
-    fetch(`http://localhost:9292/notes/${editNoteObj.id}`, {
+    fetch(`/notes/${editNoteObj.id}`, {
       method: "PATCH",
       body: JSON.stringify(newEditObj),
       headers: {

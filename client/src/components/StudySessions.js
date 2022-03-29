@@ -13,7 +13,7 @@ function StudySessions() {
     );
     setSessionWithNotes(newDeletedSessionArray);
 
-    fetch(`http://localhost:9292/study_sessions/${id}`, {
+    fetch(`/study_sessions/${id}`, {
       method: "DELETE",
     });
   }
@@ -34,7 +34,7 @@ function StudySessions() {
       }
     });
 
-    fetch(`http://localhost:9292/study_sessions/${sessionId}`, {
+    fetch(`/study_sessions/${sessionId}`, {
       method: "PATCH",
       body: JSON.stringify(newSessionObj),
       headers: {
@@ -46,7 +46,7 @@ function StudySessions() {
   }
 
   useEffect(() => {
-    fetch("http://localhost:9292/study_sessions_notes")
+    fetch("/study_sessions_notes")
       .then((r) => r.json())
       .then(setSessionWithNotes);
   }, []);
