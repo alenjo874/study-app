@@ -4,6 +4,11 @@ class TodoListsController < ApplicationController
         render json: todos, status: :ok
     end
 
+    def user_todo_list
+        todo_list = TodoList.all.where("user_id = ?", params[:id])
+        render json: todo_list, status: :ok
+    end
+
     def show 
         show_todo = TodoList.find_by!(id: params[:id])
         render json: show_todo, status: :ok

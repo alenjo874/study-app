@@ -46,7 +46,7 @@ function StudySessions() {
   }
 
   useEffect(() => {
-    fetch("/study_sessions_notes")
+    fetch("/study_sessions")
       .then((r) => r.json())
       .then(setSessionWithNotes);
   }, []);
