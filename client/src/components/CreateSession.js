@@ -37,6 +37,7 @@ function CreateSession() {
 
   function handleCreateSession(e) {
     e.preventDefault();
+
     const newSession = {
       title: title,
       session_overview: overview,

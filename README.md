@@ -6,7 +6,7 @@ This project was built for students to keep themselves accountable by timing the
 
 To start the project please run these commands
 
-- bundle exec rake server
+- rails s
 - npm start --prefix client (or move inside the client directory and run npm start)
 
 ## Overview
